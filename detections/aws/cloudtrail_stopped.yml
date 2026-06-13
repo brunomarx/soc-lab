@@ -1,0 +1,20 @@
+title: CloudTrail Logging Stopped or Deleted
+id: 6b0f6d5e-3c1b-4a60-9a7e-0e8d1f4a2c01
+status: experimental
+description: Detects StopLogging or DeleteTrail calls.
+author: Northgate Labs
+date: 2026/06/20
+tags:
+  - attack.defense_evasion
+  - attack.t1562.008
+logsource:
+  product: aws
+  service: cloudtrail
+detection:
+  selection:
+    eventSource: cloudtrail.amazonaws.com
+    eventName: StopLogging
+  condition: selection
+falsepositives:
+  - Planned trail migration
+level: high

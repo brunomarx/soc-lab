@@ -1,0 +1,20 @@
+title: GuardDuty Detector Deleted
+id: 8a41c1b2-77de-4f0e-b3f5-5c2a9d7e1f02
+status: experimental
+description: Detects deletion of a GuardDuty detector.
+author: Northgate Labs
+date: 2026/06/20
+tags:
+  - attack.defense_evasion
+  - attack.t1562.001
+logsource:
+  product: aws
+  service: cloudtrail
+detection:
+  selection:
+    eventSource: guardduty.amazonaws.com
+    eventName: DeleteDetector
+  condition: selection
+falsepositives:
+  - Account decommissioning
+level: high

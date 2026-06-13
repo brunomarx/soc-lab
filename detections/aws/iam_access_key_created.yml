@@ -1,0 +1,20 @@
+title: IAM Access Key Created For Another User
+id: c3d9e2a4-1f5b-4b88-8f10-2a6b7c9d0e03
+status: experimental
+description: Detects CreateAccessKey where the caller differs from the target user.
+author: Northgate Labs
+date: 2026/06/20
+tags:
+  - attack.persistence
+  - attack.t1098.001
+logsource:
+  product: aws
+  service: cloudtrail
+detection:
+  selection:
+    eventSource: iam.amazonaws.com
+    eventName: CreateAccessKey
+  condition: selection
+falsepositives:
+  - Admin onboarding
+level: medium

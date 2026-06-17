@@ -1,0 +1,11 @@
+services:
+  opensearch:
+    image: opensearchproject/opensearch:2.15.0
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+    ports: ["9200:9200"]
+  ingest:
+    build: ./ingest
+    env_file: .env
+    depends_on: [opensearch]

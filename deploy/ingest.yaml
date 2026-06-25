@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingest
+  namespace: siem
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: ingest}
+  template:
+    metadata:
+      labels: {app: ingest}
+    spec:
+      containers:
+        - name: ingest
+          image: ghcr.io/northgate-labs/soc-lab-ingest:0.2.0
+          envFrom:
+            - secretRef: {name: ingest-env}

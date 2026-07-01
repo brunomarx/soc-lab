@@ -1,0 +1,20 @@
+title: Bedrock API Key Created
+id: e5f9a2c7-3b8d-4d2a-8e42-4c8d9e1f2a05
+status: experimental
+description: Detects creation of long-term Bedrock API keys, a persistence pattern seen after key theft.
+author: Northgate Labs
+date: 2026/06/20
+tags:
+  - attack.persistence
+  - attack.t1098
+logsource:
+  product: aws
+  service: cloudtrail
+detection:
+  selection:
+    eventSource: iam.amazonaws.com
+    eventName: CreateServiceSpecificCredential
+  condition: selection
+falsepositives:
+  - Approved platform onboarding
+level: high

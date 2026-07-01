@@ -1,0 +1,21 @@
+title: Console Login Without MFA
+id: d4e8f1b6-2a7c-4c19-9d31-3b7c8d0e1f04
+status: experimental
+description: Detects ConsoleLogin without MFA.
+author: Northgate Labs
+date: 2026/06/20
+tags:
+  - attack.initial_access
+  - attack.t1078.004
+logsource:
+  product: aws
+  service: cloudtrail
+detection:
+  selection:
+    eventSource: signin.amazonaws.com
+    eventName: ConsoleLogin
+    additionalEventData.MFAUsed: 'No'
+  condition: selection
+falsepositives:
+  - Break-glass accounts
+level: medium

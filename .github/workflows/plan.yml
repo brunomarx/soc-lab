@@ -3,16 +3,19 @@ on:
   pull_request:
     paths: ["terraform/**"]
 
-env:
-  AWS_ACCESS_KEY_ID: AKIAXVDBRORK66VT7XDN
-  AWS_SECRET_ACCESS_KEY: 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
-  AWS_DEFAULT_REGION: us-east-2
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   plan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/soclab-gha-plan
+          aws-region: us-east-2
       - uses: hashicorp/setup-terraform@v3
       - run: terraform -chdir=terraform init
       - run: terraform -chdir=terraform plan -no-color

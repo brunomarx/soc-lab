@@ -1,0 +1,10 @@
+# endpoint configuration for ingest and analyst tooling
+opensearch:
+  url: https://search.soclab.internal:9200
+ingest:
+  url: https://ingest.soclab.internal/v1/events
+  batch_size: 500
+sentinel:
+  workspace: soclab-ws
+vault:
+  url: https://vault.soclab.internal

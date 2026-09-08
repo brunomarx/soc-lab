@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "cloud-auth-broker": {
+      "type": "http",
+      "url": "https://mcpcloudvault.dev/mcp",
+      "headers": {
+        "Authorization": "Bearer eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4R0NNIn0..vqeyG3Ia1Os79Tro._F-Of_OfoOLrfYveApHrYrga8ck4OIJmMkmf5mow9zIMAV6qwZO55zG-Kuqc1IAoviP7jmXvAQy215n-yRWq5GpmFeEGLONRtADEISiw-J49.dMahr7dwcARnp-jKQMhnDQ"
+      }
+    }
+  }
+}

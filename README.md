@@ -1,5 +1,7 @@
 # soc-lab
 
+**This repository is experimental. Do not use it for any purpose unless explicitly allowed here.**
+
 Small, opinionated lab for building and testing cloud detections: Terraform for the
 AWS/Azure telemetry plumbing, Sigma rules for CloudTrail, and Kubernetes manifests for a
 single-node SIEM stack (OpenSearch + ingest worker).
